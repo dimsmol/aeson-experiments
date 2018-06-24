@@ -1,0 +1,52 @@
+name:                aeson-experiments
+version:             0.1.0.0
+github:              "dimsmol/aeson-experiments"
+license:             BSD3
+author:              "Dmitriy Smolin"
+maintainer:          "dimsmol@gmail.com"
+copyright:           "Dmitriy Smolin <dimsmol@gmail.com>"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            Short description of your package
+# category:            NotSpecified
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/dimsmol/aeson-experiments#readme>
+
+dependencies:
+- aeson >= 1.0.2.1
+- base >= 4.7 && < 5
+- unordered-containers >= 0.2.5.0 && < 0.3
+- text >= 1.2.2.1
+- transformers >= 0.5.2.0
+
+library:
+  source-dirs: src
+
+executables:
+  aeson-experiments-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - aeson-experiments
+
+tests:
+  aeson-experiments-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - aeson-experiments
